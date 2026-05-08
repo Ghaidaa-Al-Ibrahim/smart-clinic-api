@@ -67,4 +67,4 @@ mvn spring-boot:run
 
 ## Database Schema
 
-![ERD Diagram](docs/erd.png)
+![ERD Diagram](Smart-Clinic/docs/erd.png)
