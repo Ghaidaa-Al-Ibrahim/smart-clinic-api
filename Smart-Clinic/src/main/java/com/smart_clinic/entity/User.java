@@ -28,6 +28,8 @@ public class User {
     @Column(name = "lastname")
     private String lastname;
 
+    @Column(name = "role")
+    private String role;
 
     @Column(name = "username",unique = true)
     private String username;
