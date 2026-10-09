@@ -28,7 +28,7 @@ public class MedicalRecordService {
 
 
 
-    public void createMedicalRecord(long appointmentId , String medicalRecordText){
+    public MedicalRecord createMedicalRecord(long appointmentId , String medicalRecordText){
       Appointment appointment =appointmentRepository.findById(appointmentId)
               .orElseThrow(() -> new RuntimeException("Appointment not found!!"));
 
@@ -36,8 +36,9 @@ public class MedicalRecordService {
         medicalRecord.setAppointment(appointment);
         medicalRecord.setPatient(appointment.getPatient());
         medicalRecord.setMedicalHistory(medicalRecordText);
-      medicalRecordRepository.save(medicalRecord);
+       return  medicalRecordRepository.save(medicalRecord);
     }
+
     public MedicalRecord getRecordByAppointment(long appointmentId){
         Appointment appointment =appointmentRepository.findById(appointmentId)
                 .orElseThrow(() -> new RuntimeException("Appointment not found!!"));

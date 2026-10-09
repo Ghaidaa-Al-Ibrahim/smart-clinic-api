@@ -1,5 +1,6 @@
 package com.smart_clinic.service;
 
+import com.smart_clinic.dto.response.LoginResponseDTO;
 import com.smart_clinic.entity.Doctor;
 import com.smart_clinic.entity.Patient;
 import com.smart_clinic.entity.User;
@@ -60,7 +61,7 @@ public class AuthService {
 
     }
 
-    public String login(String email, String password){
+    public LoginResponseDTO login(String email, String password){
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found!"));
         String encodedPassword=user.getPassword();
@@ -70,6 +71,10 @@ public class AuthService {
         }else {
             throw new RuntimeException("Wrong password!");
         }
-        return token;
+        LoginResponseDTO loginResponseDTO = new LoginResponseDTO();
+        loginResponseDTO.setToken(token);
+        loginResponseDTO.setRole(user.getRole());
+        loginResponseDTO.setFirstname(user.getFirstname());
+        return loginResponseDTO;
     }
 }

@@ -13,5 +13,6 @@ import java.util.Date;
 @NoArgsConstructor
 public class AppointmentRequestDTO {
    private Long doctorId;
+   private Long patientId;
   private Date dateTime;
 }

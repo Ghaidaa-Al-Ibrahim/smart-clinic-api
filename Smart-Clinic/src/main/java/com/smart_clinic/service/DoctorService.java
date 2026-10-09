@@ -45,7 +45,7 @@ public class DoctorService {
         doctor.setSpecialty(specialty);
         doctorRepository.save(doctor);
     }
-    public void updateDoctor(long doctorId,Doctor doctor){
+    public Doctor updateDoctor(long doctorId,Doctor doctor){
      Doctor existingDoctor = doctorRepository.findById(doctorId)
                 .orElseThrow(() -> new RuntimeException("Doctor not found!"));
       existingDoctor.setFirstname(doctor.getFirstname());
@@ -57,7 +57,7 @@ public class DoctorService {
       existingDoctor.setPassword(doctor.getPassword());
       existingDoctor.setDoctorScheduleList(doctor.getDoctorScheduleList());
       existingDoctor.setAppointmentList(doctor.getAppointmentList());
-        doctorRepository.save(existingDoctor);
+     return    doctorRepository.save(existingDoctor);
     }
 
     public void deleteDoctor(long doctorId){

@@ -1,5 +1,6 @@
 package com.smart_clinic.dto.response;
 
+import com.smart_clinic.enums.AppointmentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,5 +17,5 @@ public class AppointmentResponseDTO {
     private String doctorName;
     private String doctorSpecialty;
     private Date dateTime;
-    private String status;
+    private AppointmentStatus status;
 }
